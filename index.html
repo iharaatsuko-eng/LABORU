@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>研究室を、ひらく ― LABORU</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#faf7f1;
+    --paper-2:#f3ecdf;
+    --card:#fffdf9;
+    --ink:#3d342a;
+    --ink-soft:#7c6d5a;
+    --line:#d8ccb8;
+    --line-soft:#e7ddcb;
+    --ember:#9e4a2c;
+    --ember-soft:#c17b3f;
+    --slate:#5c6a68;
+    box-sizing:border-box;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:"Shippori Mincho",serif;color:var(--ink);
+    background:
+      radial-gradient(circle at 85% -5%, rgba(193,123,63,.07), transparent 30%),
+      radial-gradient(circle at 5% 105%, rgba(92,106,104,.06), transparent 34%),
+      var(--paper);
+    line-height:1.95;min-height:100vh;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  .wrap{max-width:680px;margin:0 auto;padding:0 24px 72px;}
+
+  /* nav */
+  nav{
+    display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;
+    padding:20px 0 14px;border-bottom:1px solid var(--line-soft);
+  }
+  .mark{
+    font-family:"Cormorant Garamond",serif;font-weight:600;font-size:28px;
+    letter-spacing:.24em;text-indent:.24em;
+  }
+  .jp{font-size:12px;letter-spacing:.16em;color:var(--ink-soft);}
+
+  /* hero */
+  .hero{text-align:center;padding:60px 0 30px;}
+  .ey{
+    font-family:"Cormorant Garamond",serif;font-style:italic;font-size:14px;
+    color:var(--ember);letter-spacing:.05em;margin-bottom:20px;
+  }
+  .hero h1{font-size:32px;font-weight:800;letter-spacing:.08em;line-height:1.5;margin-bottom:24px;}
+  .hero .lead{font-size:14.5px;color:var(--ink);line-height:2.1;letter-spacing:.02em;}
+
+  /* story */
+  .story{max-width:600px;margin:0 auto;}
+  .blk{
+    padding:30px 0;border-bottom:1px solid var(--line-soft);text-align:center;
+    font-size:15px;line-height:2.15;letter-spacing:.02em;
+  }
+  .blk .dash{color:var(--ember);}
+  .blk b{color:var(--ink);font-weight:600;}
+  .saichi{color:var(--ember);font-weight:600;}
+
+  .mark-mid{
+    text-align:center;font-family:"Cormorant Garamond",serif;color:var(--ember-soft);
+    font-size:15px;letter-spacing:.5em;padding:34px 0 8px;
+  }
+
+  /* section */
+  .sec{padding:14px 0 4px;}
+  .sec h2{
+    text-align:center;font-size:21px;font-weight:700;letter-spacing:.06em;
+    margin-bottom:22px;
+  }
+  .panel{
+    background:var(--card);border:1px solid var(--line);padding:26px 26px 24px;
+  }
+  .panel ul{list-style:none;display:flex;flex-direction:column;gap:16px;}
+  .panel li{
+    font-size:14px;line-height:1.95;color:var(--ink);letter-spacing:.01em;
+    padding-left:20px;position:relative;
+  }
+  .panel li::before{
+    content:"火";font-family:"Shippori Mincho",serif;font-size:11px;color:var(--ember-soft);
+    position:absolute;left:0;top:.35em;line-height:1;
+  }
+
+  .co{
+    font-size:13.5px;color:var(--ink-soft);line-height:2.05;letter-spacing:.01em;
+    text-align:center;max-width:560px;margin:22px auto 0;
+  }
+
+  /* details */
+  .details{
+    margin-top:14px;border:1px solid var(--line);background:var(--paper-2);
+    padding:22px 26px;font-size:13.5px;line-height:2;letter-spacing:.01em;
+  }
+  .details .row{display:flex;gap:14px;align-items:baseline;padding:5px 0;flex-wrap:wrap;}
+  .details .k{
+    font-family:"Cormorant Garamond",serif;font-style:italic;color:var(--slate);
+    font-size:13px;flex-shrink:0;width:118px;letter-spacing:.02em;
+  }
+  .details .v{color:var(--ink);flex:1;min-width:200px;}
+  .details .price{
+    font-family:"Cormorant Garamond",serif;font-weight:600;font-size:19px;color:var(--ember);
+  }
+  .details .note{
+    margin-top:12px;padding-top:12px;border-top:1px solid var(--line-soft);
+    font-size:12.5px;color:var(--ink-soft);line-height:1.9;
+  }
+
+  /* closing + cta */
+  .closing{text-align:center;padding:52px 0 10px;font-size:16px;line-height:2.15;letter-spacing:.03em;}
+  .closing .soft{color:var(--ember);font-weight:600;}
+
+  .cta{
+    text-align:center;margin-top:22px;border:1px solid var(--ember-soft);
+    background:linear-gradient(180deg,#fdf7f0,var(--card));padding:30px 26px;
+  }
+  .cta .fields{font-size:13px;color:var(--ink-soft);letter-spacing:.03em;margin-bottom:6px;}
+  .cta .apply{
+    display:inline-block;margin-top:16px;font-family:inherit;text-decoration:none;cursor:pointer;
+    background:var(--ember);color:#fff;border:none;border-radius:4px;
+    padding:13px 48px;font-size:15px;font-weight:700;letter-spacing:.14em;transition:opacity .15s;
+  }
+  .cta .apply:hover{opacity:.9;}
+  .cta .after{font-size:12.5px;color:var(--ink-soft);line-height:1.95;margin-top:18px;max-width:520px;margin-inline:auto;}
+
+  /* footer */
+  footer{margin-top:44px;padding-top:22px;border-top:1px solid var(--line-soft);text-align:center;}
+  .foot-q{font-size:15px;font-weight:700;color:var(--ember);letter-spacing:.12em;}
+  .foot-en{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:12px;color:var(--ink-soft);margin-top:4px;}
+  .foot-brand{font-family:"Cormorant Garamond",serif;font-size:10px;letter-spacing:.26em;color:var(--line);margin-top:16px;}
+
+  @media(max-width:520px){
+    .hero h1{font-size:25px;letter-spacing:.05em;}
+    .details .k{width:auto;}
+    .cta .apply{padding:13px 36px;letter-spacing:.1em;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav>
+    <span class="mark">LABORU</span>
+    <span class="jp">彩知をひらく研究所</span>
+  </nav>
+
+  <!-- hero -->
+  <header class="hero">
+    <div class="ey">Open your own research room.</div>
+    <h1>研究室を、ひらく。</h1>
+    <p class="lead">
+      あなたが、ずっと手放せずにいるもの。<br>
+      いくつもの関心、いくつもの衝動、いくつもの愛。<br>
+      その「それ」を研究にして、世にわかちあう。<br>
+      LABORUは、そのはじまりの場所です。
+    </p>
+  </header>
+
+  <!-- story -->
+  <section class="story">
+    <div class="blk">
+      人は、何を知っているかではなく、<br>
+      <b>何に身を投じ続けてきたか</b>で、形づくられていく。
+    </div>
+    <div class="blk">
+      ふとした疑問から。<br>
+      どうしても、また戻ってきてしまうものから。<br>
+      気づけば、時間を忘れているものから。<br>
+      ふいに訪れた、ひらめきから。<br>
+      <span class="dash">——</span>始まりは、どんな形でもいい。<br>
+      それが、あなたにしかできない研究の、種です。
+    </div>
+    <div class="blk" style="border-bottom:none;">
+      研究し、世にひらき、わかちあうとき、<br>
+      <span class="saichi">彩知</span>と<span class="saichi">彩知</span>が触れあい、そこに小さな火が灯る。<br>
+      その火は、また新しい問いを照らす。<br>
+      LABORUは、その円環の入口です。<br>
+      あなたが、あなたになっていく。
+    </div>
+  </section>
+
+  <div class="mark-mid">✦ ✦ ✦</div>
+
+  <!-- what happens -->
+  <section class="sec">
+    <h2>研究室を、ひらくと</h2>
+    <div class="panel">
+      <ul>
+        <li>LABORUサイトにあなたの研究を掲載し、協働研究者や応援者を募ることができます。</li>
+        <li>研究の歩みを綴る note を開きます。その歩みに共感した人が、協働研究者として加わったり、応援というかたちで支えてくれたりします。</li>
+        <li>月2回（1回1時間）の研究室長会議に参加できます。進捗を分かち合い、困りごとを持ち寄り、発信を一緒に考える——研究を研究する時間です。</li>
+      </ul>
+    </div>
+
+    <p class="co">
+      寄せられた応援を何に活かすかは、研究室長にゆだねられています。<br>
+      ご自身の活動を支える糧とすることも、研究室の営みのために研究員と一緒に決めて使うことも。<br>
+      いずれも、集まった想いの、活かし方のひとつです。
+    </p>
+
+    <div class="details">
+      <div class="row">
+        <span class="k">ひらく費用</span>
+        <span class="v"><span class="price">月額 5,000円</span>（税込）／ クレジットカードでの自動決済</span>
+      </div>
+      <div class="row">
+        <span class="k">研究室長会議</span>
+        <span class="v">初回 10月6日（火）9:00–10:00<br>以降、原則 毎月 第1・第3水曜 9:00–10:00（オンライン）</span>
+      </div>
+      <div class="note">Discord の LABORU チャンネルで、随時ご相談もできます。</div>
+    </div>
+  </section>
+
+  <!-- closing -->
+  <section class="closing">
+    特別な資格は、いりません。<br>
+    いま、あなたの中にある小さな熱を、<br>
+    ここで、<span class="soft">ひらいてみませんか？</span>
+  </section>
+
+  <!-- cta -->
+  <div class="cta">
+    <div class="fields">お名前 ・ メールアドレス ・ 研究テーマ（仮でOK）</div>
+    <a class="apply" href="https://forms.gle/2nfUCuLZakvMrNoj8" target="_blank" rel="noopener">研究室をひらく</a>
+    <p class="after">
+      準備ができ次第、LABORUサイトにあなたの研究室を掲載し、<br>
+      協働研究者・応援者の募集を始めます。
+    </p>
+  </div>
+
+  <footer>
+    <div class="foot-q">研究を、もっと身近に。</div>
+    <div class="foot-en">Live by your wish, together.　願いに生きる、共にある。</div>
+    <div class="foot-brand">L A B O R U　　／　　T A K i B i B A</div>
+  </footer>
+
+</div>
+</body>
+</html>
